@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+        {% block head %}
+        <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        {% if FEED_ALL_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+        {% endif %}
+        {% if FEED_ALL_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
+        {% endif %}
+        {% if FEED_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+        {% endif %}
+        {% if FEED_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+        {% endif %}
+        {% if CATEGORY_FEED_ATOM and category %}
+        <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+        {% endif %}
+        {% if CATEGORY_FEED_RSS and category %}
+        <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+        {% endif %}
+        {% if TAG_FEED_ATOM and tag %}
+        <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+        {% endif %}
+        {% if TAG_FEED_RSS and tag %}
+        <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+        {% endif %}
+        {% endblock head %}
+        <link rel="stylesheet" href="../theme/styles.css">
+        <link rel="stylesheet" href="../theme/pygment_trac.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="shortcut icon" href="../../../images/favicon1.ico">
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <script type="text/javascript">var switchTo5x=true;</script>
+        <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+        <script type="text/javascript">stLight.options({publisher: "a7e62fa0-9d45-4679-8ac5-d2e219a88921", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
+</head>
+
+<body>
+        <div class="wrapper">
+            <header>
+                    <h1>Nasser Alkmim</h1>
+                    <p class="view"><a href="../../../index.html">About</a></p>
+                    <p
+                            class="view"><a href="../../../resume.html">Resume</a></p>
+                    <p class="view"><a href="../../../projects.html">Projects
+                    </a></p>
+                    <p class="view"><a href="../../../blog/output/index.html">
+                        Blog</a></p>
+                <h5
+                        class="view">&nbsp;<a
+                        href="../../../blog/output/tags.html">
+                    Tags</a></h5>
+                <h5
+                        class="view">&nbsp;<a
+                        href="../../../blog/output/categories.html">
+                    Categories</a></h5>
+            </header><!-- /#banner -->
+
+            {% block content %}
+            {% endblock %}
+            <footer>
+                 <div>
+                    <p><a href="https://www.facebook.com/"><img
+                            src="../theme/images/icons/facebook.png"
+                            height="32"
+                            width="32"></a></li>
+                    <a href="https://instagram.com/nasseralkmim/"><img
+                            src="../theme/images/icons/instagram.png"
+                            height="32"
+                            width="32"></a>
+                    <a
+                            href="https://github.com/nasseralkmim"><img
+                            src="../theme/images/icons/github.png"
+                            height="32"
+                            width="32"></a></p>
+                </div>
+            </footer><!-- /#contentinfo -->
+        </div>
+<script src="javascripts/scale.fix.js"></script>
+</body>
+</html>
